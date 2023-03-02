@@ -1,19 +1,7 @@
 import { Router } from "express";
-import express,{request,response,application} from 'express';
-import { createUser,getAllUsers} from '../controllear/user.controllear';
-const router = express.Router();
+import {  Register,gatAllusers } from "../controllear/user.controllear";
 
-//read 
-
-router.get('/',getAllUsers);
-
-
-// //create
-router.post('/',createUser);
-// router.put('/:id',updateUser);
-
-// //update
-
-// //delete
-// router.delete('/:id',deleteUser);
+const router = Router();
+router.post("/",  Register);
+router.get("/", gatAllusers);
 export default router;
