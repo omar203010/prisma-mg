@@ -10,16 +10,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 model User{
-  id Int @id @default(autoincrement())
-  name String?
-  email String @unique
-  age Int?
-  courses courses[]
-
+  id String @id @default(uuid())
+  username String?
+  passeord String 
+  email String@unique
+  blog Blog[]
+  
 }
-model courses {
-  id       Int  @id @default(autoincrement())
-  name String?
-  userId Int 
-  user User @relation(fields: [userId], references: [id])
+
+model Blog {
+  id    String  @id @default(uuid())
+  title  String
+  userId  String 
+  creatdata DateTime @default(now())
+  user   User? @relation(fields: [userId], references: [id])
 }

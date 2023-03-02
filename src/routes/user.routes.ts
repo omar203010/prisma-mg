@@ -1,17 +1,19 @@
-import { createUser, deleteUser, findAllUsers, updateUser } from '../controllear/user.controllear';
-import express from 'express';
-let router = express.Router();
+import { Router } from "express";
+import express,{request,response,application} from 'express';
+import { createUser,getAllUsers} from '../controllear/user.controllear';
+const router = express.Router();
 
-//read
-router.get('/',findAllUsers);
+//read 
+
+router.get('/',getAllUsers);
 
 
-//create
+// //create
 router.post('/',createUser);
+// router.put('/:id',updateUser);
 
-//update
-router.put('/:id',updateUser);
+// //update
 
-//delete
-router.delete('/:id',deleteUser);
-export default router
+// //delete
+// router.delete('/:id',deleteUser);
+export default router;
