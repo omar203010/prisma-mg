@@ -19,3 +19,26 @@ export const gatAllusers = async (req: Request, res: Response) => {
   res.json(users);
 };
 
+export const Login = async (req: Request, res: Response) => {
+  try {
+    const { username,  passeord } = req.body;
+    const user = await prisma.user.findFirst({
+      where: {
+        username,
+        passeord,
+      },
+    });
+
+    if (!user) {
+      res.json({
+        message: "woring username or password",
+      });
+    }
+    res.json({
+      message: `weclome back ${username}`,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+

@@ -3,7 +3,6 @@ import { connectDB } from "./config/db";
 import userRouter from "./routes/user.routes";
 import blogRouter from "./routes/blogrouter"
 
-// import blogRouter from "./routes/blog.router"
 
 const app = express();
 app.use(express.json());
